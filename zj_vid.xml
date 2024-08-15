@@ -1,0 +1,17 @@
+<service>
+  <id>zj-vid</id>
+  <name>zj-vid</name>
+  <description>This service runs will work.</description>
+  <!--env name="JENKINS_HOME" value="%BASE%"/-->
+  <executable>C:\ffmpeg\bin\ffmpeg</executable>
+  <!--executable>wmic</executable-->
+  <!--arguments> -analyzeduration 2147483647 -probesize 2147483647 -rtbufsize 1500M -f dshow -i video="UScreenCapture" -c:v libx264 -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -crf 40 -profile:v baseline -x264opts level=31 -pix_fmt yuv420p -preset ultrafast -f flv rtmp://127.0.0.1/view/jesse</arguments-->
+  <!--arguments> -analyzeduration 2147483647 -probesize 2147483647 -rtbufsize 1500M -f dshow -i video="UScreenCapture":audio="Microphone Array (Realtek Audio)" -c:v libx264 -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -crf 40 -profile:v baseline -x264opts level=31 -pix_fmt yuv420p -preset ultrafast c:\Temp\_%username%_good.mp4</arguments-->
+  <!--arguments> -analyzeduration 2147483647 -probesize 2147483647 -rtbufsize 1500M -f dshow -i video="UScreenCapture" -c:v libx264  -vf scale=3840x2160,setdar=3:4  -profile:v baseline -x264opts level=31 -pix_fmt yuv420p -preset ultrafast -y c:\Temp\yes.mp4</arguments-->
+  <arguments> -analyzeduration 2147483647 -probesize 2147483647 -rtbufsize 1500M -f dshow -i video="screen-capture-recorder" -s 1024x768 -c:v libx264  -profile:v baseline -x264opts level=31 -pix_fmt yuv420p -preset ultrafast -y c:\Temp\h.mp4</arguments>
+  <!--arguments> path Win32_VideoController get VideoModeDescription,CurrentVerticalResolution,CurrentHorizontalResolution /format:value</arguments-->
+
+  <!--arguments> -f gdigrab -framerate 30 -i desktop -c:v libx264 output.mkv -f dshow -i audio="Microphone Array (Realtek Audio)"  -y C:\temp\screen-capture.mp4</arguments-->
+  <!--arguments> -f gdigrab -framerate 10 -i desktop c:\temp\vid.mp4</arguments-->
+  <log mode="roll"></log>
+</service>
